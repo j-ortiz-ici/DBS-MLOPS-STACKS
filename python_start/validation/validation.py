@@ -5,9 +5,9 @@ from mlflow.models import make_metric, MetricThreshold
 # Please refer to custom_metrics parameter in mlflow.evaluate documentation https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.evaluate
 # TODO(optional) : custom_metrics
 def custom_metrics():
-
     # TODO(optional) : define custom metric function to be included in custom_metrics.
     def squared_diff_plus_one(eval_df, _builtin_metrics):
+        print("Hello world")
         """
         This example custom metric function creates a metric based on the ``prediction`` and
         ``target`` columns in ``eval_df`.

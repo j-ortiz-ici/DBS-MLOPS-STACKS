@@ -108,6 +108,7 @@ import traceback
 
 from mlflow.tracking.client import MlflowClient
 
+mlflow.set_registry_uri('databricks-uc')
 client = MlflowClient(registry_uri="databricks-uc")
 
 # set experiment
@@ -227,6 +228,7 @@ with mlflow.start_run(
     mlflow.log_artifact(validation_thresholds_file)
 
     try:
+        print(data)
         eval_result = mlflow.evaluate(
             model=model_uri,
             data=data,
