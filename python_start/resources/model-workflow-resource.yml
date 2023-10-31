@@ -1,6 +1,6 @@
 new_cluster: &new_cluster
   new_cluster:
-    num_workers: 3
+    num_workers: 1
     spark_version: 13.3.x-cpu-ml-scala2.12
     node_type_id: Standard_D3_v2
     custom_tags:
@@ -48,11 +48,11 @@ resources:
               # `enabled`  : Run the model validation notebook. Move model to Production stage only if all model validation
               #               rules are passing.
               # TODO: update run_mode
-              run_mode: dry_run
+              run_mode: enabled
               # Whether to load the current registered "Production" stage model as baseline.
               # Baseline model is a requirement for relative change and absolute change validation thresholds.
               # TODO: update enable_baseline_comparison
-              enable_baseline_comparison: "false"
+              enable_baseline_comparison: "true"
               # Please refer to data parameter in mlflow.evaluate documentation https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.evaluate
               # TODO: update validation_input
               validation_input: SELECT * FROM delta.`dbfs:/databricks-datasets/nyctaxi-with-zipcodes/subsampled`
@@ -63,7 +63,7 @@ resources:
               # The string name of a column from data that contains evaluation labels.
               # Please refer to targets parameter in mlflow.evaluate documentation https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.evaluate
               # TODO: targets
-              targets: mean_squared_error
+              targets: fare_amount
               # Specifies the name of the function in python-start/training_validation_deployment/validation/validation.py that returns custom metrics.
               # TODO(optional): custom_metrics_loader_function
               custom_metrics_loader_function: custom_metrics

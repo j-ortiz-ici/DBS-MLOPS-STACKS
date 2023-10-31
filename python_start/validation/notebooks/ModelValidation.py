@@ -228,6 +228,7 @@ with mlflow.start_run(
     mlflow.log_artifact(validation_thresholds_file)
 
     try:
+        print(data)
         eval_result = mlflow.evaluate(
             model=model_uri,
             data=data,
