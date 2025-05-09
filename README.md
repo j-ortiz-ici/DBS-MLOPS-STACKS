@@ -1,4 +1,4 @@
-# BDS-MLOps
+# DBS-MLOps
 
 This directory contains an ML project based on the default
 [Databricks MLOps Stacks](https://github.com/databricks/mlops-stacks),
